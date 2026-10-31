@@ -1,5 +1,49 @@
-/* Hp/Tablet/PC */
-@media screen and (max-width: 1280px) {
+/* =============================
+   Default (Mobile First)
+   ============================= */
+.section {
+  width: 100%;
+}
+
+.header_content {
+  padding-right: 10px;
+}
+
+/* =============================
+   Handphone Kecil (max-width: 480px)
+   ============================= */
+@media only screen and (max-width: 480px) {
+  .header_content {
+    padding-right: 10px;
+  }
+
+  .section {
+    width: 100%;
+  }
+}
+
+/* =============================
+   Handphone Besar / Tablet Kecil (481px - 719px)
+   ============================= */
+@media screen and (min-width: 481px) and (max-width: 719px) {
+  .section {
+    width: 100%;
+  }
+}
+
+/* =============================
+   Tablet (720px - 991px)
+   ============================= */
+@media screen and (min-width: 720px) and (max-width: 991px) {
+  .section {
+    width: 100%;
+  }
+}
+
+/* =============================
+   Laptop Kecil (992px - 1279px)
+   ============================= */
+@media screen and (min-width: 992px) and (max-width: 1279px) {
   .header_content {
     padding-right: 20px;
   }
@@ -8,22 +52,10 @@
     width: 100vw !important;
   }
 }
-/* Handphone */
-@media only screen and (max-width: 480px) {
-}
 
-/* Handphone/Tablet */
-@media screen and (min-width: 480px) {
-}
-
-/* Tablet */
-@media screen and (min-width: 720px) {
-}
-
-/* Tablet/PC */
-@media screen and (min-width: 992px) {
-}
-/* PC */
+/* =============================
+   PC Besar (min-width: 1280px)
+   ============================= */
 @media only screen and (min-width: 1280px) {
   .section:nth-child(1) {
     max-width: 520px;

@@ -46,17 +46,18 @@
                             <th scope="row">No.</th>
                             <th scope="row">Kode Ruangan</th>
                             @if (auth()->user()->role_id <= 2)
-                                <th scope="row">Nama Peminjam</th>
+                                <th scope="row">Tanggal</th>
                             @endif
-                            <th scope="row">Tanggal</th>
+                            <th scope="row">Nama Peminjam</th>
                             <th scope="row">Mulai Pinjam</th>
                             <th scope="row">Selesai Pinjam</th>
                             <th scope="row">Kegiatan</th>
                             <th scope="row">Waktu Transaksi</th>
+                            <th scope="row">phone</th>
                             <th scope="row">Kembalikan</th>
                             <th scope="row">Status Pinjam</th>
                             @if (auth()->user()->role_id <= 2)
-                                <th scope="row">Action</th>
+                                
                             @endif
                         </tr>
                     </thead>
@@ -82,6 +83,7 @@
                                     <td>{{ $rent->time_end_use ?? '' }}</td>
                                     <td>{{ $rent->purpose ?? '' }}</td>
                                     <td>{{ $rent->transaction_start ?? '' }}</td>
+                                    <td>{{ $rent->user->phone ?? '' }}</td>
 
                                     @if ($isExpired)
                                         @php

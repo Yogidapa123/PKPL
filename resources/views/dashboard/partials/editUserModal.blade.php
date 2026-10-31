@@ -100,6 +100,17 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input autocomplete="off" type="phone"
+                            class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone"
+                            value="{{ old('phone') }}" required>
+                        @error('phone')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     @if (Request::is('dashboard/admin'))
                         <input type="hidden" name="role_id" id="role_id" value="{{ 2 }}">
                     @else

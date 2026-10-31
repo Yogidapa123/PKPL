@@ -10,8 +10,10 @@
                     @csrf
                     <input type="hidden" name="room_id" id="room_id">
                     <div class="mb-3">
-                        <label for="code" class="form-label">Kode Ruangan</label>
-                        <input autocomplete="off" type="text"
+                        <label for="code" class="form-label">Kode Ruangan<span class="text-danger fst-italic fw-lighter" style="font-size: 12px">
+                                *Min 8 Karakter</span>
+                        </label>
+                        <input autocomplete="off" type="text" minlength= "8" maxlength= "15"
                             class="form-control @error('code') is-invalid @enderror" id="code" name="code"
                             required value="{{ old('code') }}">
                         @error('code')
@@ -21,11 +23,13 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nama Ruangan</label>
-                        <input autocomplete="off" type="text"
-                            class="form-control  @error('name') is-invalid @enderror" id="name" name="name"
-                            required value="{{ old('name') }}">
-                        @error('name')
+                        <label for="name" class="form-label">Nama Ruangan<span class="text-danger fst-italic fw-lighter" style="font-size: 12px">
+                                *Min 4 Karakter</span>
+                        </label>
+                        <input autocomplete="off" type="text" minlength= "4" maxlength= "8"
+                            class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                            value="{{ old('name') }}" required>
+                        @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -47,12 +51,12 @@
                         <div class="col-6">
                             <label for="floor" class="form-label">Lantai</label>
                             <input type="number" class="form-control @error('floor') is-invalid @enderror"
-                                id="floor" name="floor" required value="{{ old('floor') }}">
+                                id="floor" name="floor" required value="{{ old('floor') }}" min="1" max="10" oninput="validity.valid || (value='');">
                         </div>
                         <div class="col-6">
                             <label for="capacity" class="form-label">Kapasitas</label>
                             <input type="number" class="form-control @error('capacity') is-invalid @enderror"
-                                id="capacity" name="capacity" required value="{{ old('capacity') }}">
+                                id="capacity" name="capacity" required value="{{ old('capacity') }}" min="10" max="50" oninput="validity.valid || (value='');">
                         </div>
                     </div>
                     <div class="mb-3">

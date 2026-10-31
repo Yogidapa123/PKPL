@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+        BuildingSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
         { {
             }
@@ -43,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
             'role_id' => 1,
+            'phone' => 6283105247681
         ]);
 
         User::create([
@@ -50,6 +54,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'mahasiswa@gmail.com',
             'password' => bcrypt('mahasiswa'),
             'role_id' => 2,
+            'phone' => 6239173819471
         ]);
 
         Faculty::create([

@@ -43,7 +43,8 @@ class DashboardAdminController extends Controller
             'name' => 'required|max:100',
             'nomor_induk' => 'required|min:8|unique:users,nomor_induk',
             'email' => 'required|email',
-            'password' => 'required|min:4'
+            'password' => 'required|min:4',
+            'phone' => 'required|min:10|max:15'   // ➜ TAMBAHAN
         ]);
 
         $validatedData['role_id'] = 1;
@@ -89,6 +90,7 @@ public function update(Request $request, User $admin)
     $rules = [
         'name' => 'required|max:100',
         'email' => 'required|email',
+        'phone' => 'required|min:10|max:15'   // ➜ TAMBAHAN
     ];
 
     // If the provided nomor_induk is different from the original one, add validation rule

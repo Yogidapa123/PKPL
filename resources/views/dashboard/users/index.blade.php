@@ -12,7 +12,8 @@
     }
 
     .custom-table tbody tr:hover {
-        background-color: #f5f5f5;
+        backgr
+        ound-color: #f5f5f5;
     }
 
     .custom-table th, .custom-table td {
@@ -80,6 +81,7 @@
                             <th scope="row">No.</th>
                             <th scope="row">Username</th>
                             <th scope="row">Email</th>
+                            <th scope="row">Nomor WA</th>
                             <th scope="row">Role</th>
                             <th scope="row">Action</th>
                         </tr>
@@ -92,6 +94,7 @@
                                     <th scope="row">{{ $loop->iteration }} </th>
                                     <td>{{ $user->name }} </td>
                                     <td>{{ $user->email }} </td>
+                                    <td>{{ $user->phone }}</td>   <!-- Tambahan -->
                                     <td>{{ $user->role->name }} </td>
                                     @if (auth()->user()->role_id === 1)
                                         <td style="font-size: 22px;">

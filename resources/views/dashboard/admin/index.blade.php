@@ -74,6 +74,7 @@
                         <th scope="row">No.</th>
                         <th scope="row">Username</th>
                         <th scope="row">Email</th>
+                        <th scope="row">Nomor WA</th>   <!-- Tambahan -->
                         <th scope="row">Action</th>
                     </tr>
                 </thead>
@@ -84,6 +85,7 @@
                         <th scope="row">{{ $loop->iteration }} </th>
                         <td>{{ $admin->name }} </td>
                         <td>{{ $admin->email }} </td>
+                        <td>{{ $admin->phone }} </td>
                         <td style="font-size: 22px;">
                             <a href="/dashboard/users/{{ $admin->id }}/edit" class="editadmin" id="editadmin"
                                 data-id="{{ $admin->id }}" data-bs-toggle="modal"

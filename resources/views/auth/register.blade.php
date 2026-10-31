@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title }} | Universitas Teknokrat Indonesia</title>
+    <title>{{ $title }} | DINAS KOMINFO MALANG</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
     <link rel="stylesheet" href="./style.css">
 
@@ -162,6 +162,16 @@
                         placeholder="Your NPM @error('nomor_induk') is-invalid @enderror"
                         value="{{ old('nomor_induk') }}" name="nomor_induk" id="nomor_induk-content-4-1" />
                     @error('nomor_induk')
+                        <div class="invalid-feedback" style="display: block">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="input-field">
+                    <input type="number" class="input-field border-0" required
+                        placeholder="Your Phone @error('phone') is-invalid @enderror" value="{{ old('phone') }}"
+                        name="phone" id="phone-content-4-1" />
+                    @error('name')
                         <div class="invalid-feedback" style="display: block">
                             {{ $message }}
                         </div>

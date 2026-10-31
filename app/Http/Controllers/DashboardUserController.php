@@ -45,6 +45,7 @@ class DashboardUserController extends Controller
             'nomor_induk' => 'required|min:8|unique:users,nomor_induk',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:4', 
+            'phone' => 'required|max:20', // Tambahan
             'role_id' => 'required'
         ]);
     
@@ -93,6 +94,7 @@ class DashboardUserController extends Controller
             'name' => 'required|max:100',
             'email' => 'required|email',
             'role_id' => 'required',
+            'phone' => 'required|max:20', // Tambahan
         ];
     
         // If the provided nomor_induk is different from the original one, add validation rule

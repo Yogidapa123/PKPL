@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('role_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('phone')->nullable();
         });
     }
 

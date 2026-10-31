@@ -38,6 +38,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/register', [RegisterController::class, 'register']);
 
+Route::resource('dashboard/rooms', DashboardRoomController::class);
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard/overview', function () {
@@ -58,7 +59,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('dashboard/rents/{id}/endTransaction', [DashboardRentController::class, 'endTransaction']);
         Route::get('dashboard/users/{id}/makeAdmin', [DashboardUserController::class, 'makeAdmin']);
         Route::get('dashboard/admin/{id}/removeAdmin', [DashboardAdminController::class, 'removeAdmin']);
-        Route::get('/dashboard/rents/export-pdf', [DashboardRentController::class, 'exportPDF'])->name('rents.export-pdf');
+        Route::get('/dashboard/rents/export-pdf', [DashboardRentController::class, 'exportPDF']) ->name('rents.export-pdf');
+        Route::get('/test-wa', [DashboardRentController::class, 'testFonnte']);
+        Route::get('/dashboard/temporaryRents/{id}/acceptRents', [TemporaryRentController::class, 'acceptRents']);
+        Route::get('/dashboard/temporaryRents/{id}/declineRents', [TemporaryRentController::class, 'declineRents']);
+        Route::post('/rent/verify/{rent}', [DashboardRentController::class, 'verify'])
+            ->name('rent.verify')
+            ->middleware(['auth', 'checkRole']);
 
         });
         

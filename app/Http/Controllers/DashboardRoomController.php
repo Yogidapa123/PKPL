@@ -46,14 +46,14 @@ class DashboardRoomController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'code' => 'required|max:30|unique:rooms',
-                'name' => 'required',
+                'code' => 'required|min:8|max:15|unique:rooms',
+                'name' => 'required|min:4|max:8',
                 'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'floor' => 'required',
-                'capacity' => 'required',
+                'floor' => 'required|integer|between:1,10',
+                'capacity' => 'required|integer|between:10,50',
                 'building_id' => 'required',
                 'type' => 'required',
-                'description' => 'required|max:250',
+                'description' => 'required|min:50|max:100',
             ]);
 
             if ($request->file('img')) {
@@ -126,17 +126,17 @@ class DashboardRoomController extends Controller
     {
         try {
             $rules = [
-                'name' => 'required',
+                'name' => 'required|min:4|max:8',
                 'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'floor' => 'required',
-                'capacity' => 'required',
+                'floor' => 'required|integer|between:1,10',
+                'capacity' => 'required|integer|between:10,50',
                 'building_id' => 'required',
                 'type' => 'required',
-                'description' => 'required|max:250',
+                'description' => 'required|min:50|max:100',
             ];
     
             if ($request->code != $room->code) {
-                $rules['code'] = 'required|max:20|unique:rooms';
+                $rules['code'] = 'required|min:8|max:15|unique:rooms';
             }
     
             $validatedData = $request->validate($rules);

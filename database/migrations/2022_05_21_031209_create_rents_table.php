@@ -23,8 +23,9 @@ return new class extends Migration
             $table->text('purpose');
             $table->dateTime('transaction_start');
             $table->dateTime('transaction_end')->nullable();
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->timestamps();
+            $table->string('phone')->nullable()->after('activity');
         });
     }
 
